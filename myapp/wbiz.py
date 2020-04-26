@@ -1,4 +1,5 @@
 import requests
+import re
 from bs4 import BeautifulSoup
 
 LIMIT = 50
@@ -24,8 +25,13 @@ def extract_wbiz_board(last_page):
         soup = BeautifulSoup(boards.text, "html.parser")
         table_datas = soup.find_all("td", {"class":"tx_l"})
 
+        board = []
         for data in table_datas:
             content = data.find("a", {"class":"contentTip"})
             if content is not None:
-                print(content.string.strip())
+                title = content.string.strip()
+                link = content.attrs["onclick"].split(";")[0].split("'")[1]
+                board.append({"title": title, "link": URL+f"&bbsCd={link}"})
+
+
 
