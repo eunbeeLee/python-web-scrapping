@@ -1,0 +1,3 @@
+.idea/
+venv/
+mysite/db.sqlite3

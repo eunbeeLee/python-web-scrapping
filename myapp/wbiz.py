@@ -31,6 +31,8 @@ def extract_wbiz_board(last_page):
             if content is not None:
                 title = content.string.strip()
                 link = content.attrs["onclick"].split(";")[0].split("'")[1]
+                parent = content.parent
+                parent_content = parent.attrs["contents"]
                 board.append({"title": title, "link": URL+f"&bbsCd={link}"})
 
 
