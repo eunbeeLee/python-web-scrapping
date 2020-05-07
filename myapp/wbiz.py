@@ -8,7 +8,7 @@ CAPITAL_URL = f"http://www.wbiz.or.kr/web/bizinfo/BD_index.do?q_mcategory_type=2
 LEARNING_CENTER_URL = f"http://www.wbiz.or.kr/web/bizinfo/BD_index.do?q_mcategory_type=3&q_rowPerPage={LIMIT}"
 MARKETING_EXPORTING_URL = f"http://www.wbiz.or.kr/web/bizinfo/BD_index.do?q_mcategory_type=4&q_rowPerPage={LIMIT}"
 
-def get_pages_by_category():
+def get_wbiz_pages_by_category():
     urls = [STARTING_BUSINESS_URL, CAPITAL_URL, LEARNING_CENTER_URL, MARKETING_EXPORTING_URL]
     return get_boards(urls)
 

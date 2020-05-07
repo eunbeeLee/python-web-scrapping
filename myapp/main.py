@@ -1,5 +1,13 @@
-from wbiz import extract_wbiz_pages, extract_wbiz_board
+from wbiz import get_wbiz_pages_by_category
+import csv
 
-last_wbiz_page = extract_wbiz_pages()
+wbiz_pages = get_wbiz_pages_by_category()
+filepath =""
+csvfile = open(filepath, "w", newline="")
+csvwriter = csv.writer(csvfile)
 
-wbiz_boards = extract_wbiz_board(last_wbiz_page)
+for page in wbiz_pages:
+    for data in page:
+        csvwriter.writerow(data)
+
+csvfile.close()
